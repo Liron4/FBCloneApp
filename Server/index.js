@@ -1,8 +1,10 @@
-const express = require('express')
-const app = express()
-app.use(express.json())
-const db = require("./models");
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
+app.use(express.json());
+app.use(cors());
+const db = require("./models");
 // Routers
 const postRouter = require('./routes/Posts') // made my app crash
 app.use("/posts", postRouter)
