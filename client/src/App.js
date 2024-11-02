@@ -1,33 +1,20 @@
 import "./App.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
-  const [listOfPosts, setListOfPosts] = useState([]);
-
-  useEffect(()   => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:3001/posts");
-        setListOfPosts(response.data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-        // Handle errors gracefully, e.g., display an error message to the user
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <div className="App">
-      {listOfPosts.map((post, key) => ( // Use a more descriptive variable name
-        <div className="post" key={key}>
-          <div className="title">{post.title}</div>
-          <div className="body">{post.postText}</div>
-          <div className="footer">{post.username}</div>
-        </div>
-      ))}
+      <Router>
+        <Link to="/createpost">Create A Post</Link>
+        <Link to="/">Homepage</Link>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/createpost" element={<CreatePost />} />
+
+        </Routes>
+      </Router>
     </div>
   );
 }
