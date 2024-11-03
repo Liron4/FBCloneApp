@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom"
 
 function CreatePost() {
   const initialValues = {
@@ -16,11 +17,15 @@ function CreatePost() {
     username: Yup.string().required().min(5).max(20),
   }); // it does not prevent numberic inputs
 
+  let navigate = useNavigate();
+
   const onSubmit = (data) => {
     axios.post('http://localhost:3001/posts', data).then(() => {
-      console.log('Post created');
+      navigate("/");
     });
   };
+
+
 
   return (
     <div className="createPostPage">
