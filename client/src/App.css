@@ -118,7 +118,7 @@ span {
 .navbar a {
   margin-left: 20px;
   text-decoration: none;
-  color: white;
+  color: white; 
 }
 
 /* INDIVIDUAL POST */
@@ -186,11 +186,11 @@ span {
 }
 
 .addCommentContainer input[type="text"].usernameInput {
-  width: 60%; /* Increased width to make the input longer */
-  border: 1px solid #ccc; /* Reduced border thickness */
-  padding: 5px; /* Optional: Adjust padding for internal spacing */
-  margin-top: 10px; /* Adds space between the input and navbar */
-  border-radius: 5px; /* Optional: Smooth corners */
+  width: 60%; 
+  border: 1px solid #ccc;
+  padding: 5px; 
+  margin-top: 10px; 
+  border-radius: 5px; 
 }
 
 .addCommentContainer button {
@@ -229,4 +229,33 @@ span {
   font-weight: bold;
   margin-top: 5px;
   color: dodgerblue;
+}
+
+/* LOGIN */
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+}
+
+.loginContainer input,
+button {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  margin: 10px;
+}
+
+.loginContainer button {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.loginContainer input {
+  border: 2px solid dodgerblue;
 }

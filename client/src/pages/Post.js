@@ -28,13 +28,10 @@ function Post() {
       })
       .then((response) => {
         const commentToAdd = { commentBody: newComment, username: username };
-        setComments([...comments, commentToAdd]); // Add new comment at the end
+        setComments([...comments, commentToAdd]); 
         setNewComment('');
         setUsername('');
       })
-      .catch((error) => {
-        console.error("There was an error adding the comment!", error);
-      });
   };
 
   return (
